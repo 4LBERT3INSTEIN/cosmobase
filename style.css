@@ -1,0 +1,459 @@
+/* --- Root Variables: Colors from Poster & Interface --- */
+:root {
+    /* Backgrounds and Panels */
+    --color-bg-deep: #05070a; /* Darkest space blue */
+    --color-bg-main: rgba(8, 12, 18, 0.95); /* Slightly lighter pane */
+    --color-bg-panel: rgba(13, 19, 29, 0.9); /* Glass effect for cards */
+    
+    /* Text */
+    --color-text-primary: #e0e6ed; /* Clean white-grey */
+    --color-text-secondary: #a1b0c0; /* Subdued grey */
+    
+    /* Accents (from poster) */
+    --color-accent-teal: #33ccff; /* Bright turquoise titles */
+    --color-accent-gold: #ffcc00; /* Subtle highlights */
+    --color-alert-red: #cc3333; /* For 'Register Now' or warnings */
+    --color-button-blue: #0066cc; /* Standard action blue */
+    
+    /* Effects */
+    --shadow-panel: 0 4px 15px rgba(0, 0, 0, 0.5);
+    --border-glass: 1px solid rgba(255, 255, 255, 0.1);
+    --border-teal-glow: 1px solid rgba(51, 204, 255, 0.4);
+    
+    /* Fonts */
+    --font-heading: 'Orbitron', sans-serif; /* Sci-Fi titles */
+    --font-body: 'Roboto', sans-serif; /* Formal scientific text */
+}
+
+/* --- Base Styles & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg-deep);
+    background-image: url('../assets/space-bg.png'); /* Your space background here */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Formal Typography --- */
+h1, h2, h3, h4, .panel-title, .school-logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.school-logo {
+    font-size: 1.8rem;
+    color: var(--color-text-primary);
+}
+
+.school-logo .plus-symbol {
+    color: var(--color-accent-gold);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* --- Header and Navigation --- */
+.main-header {
+    background-color: rgba(5, 7, 10, 0.95);
+    border-bottom: var(--border-glass);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--color-accent-teal);
+    text-shadow: 0 0 8px rgba(51, 204, 255, 0.6);
+}
+
+/* Hamburger Menu Button (hidden on desktop) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text-primary);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* --- Main Layout --- */
+main {
+    max-width: 1200px;
+    margin: 100px auto 50px auto; /* Margin for fixed header */
+    padding: 0 2rem;
+}
+
+/* --- Star Trek Datacore Panels --- */
+.datacore-panel {
+    background-color: var(--color-bg-main);
+    border: var(--border-glass);
+    border-radius: 4px;
+    box-shadow: var(--shadow-panel);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle border highlight effect */
+.datacore-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(51, 204, 255, 0.05) 0%, rgba(0, 0, 0, 0) 60%);
+    pointer-events: none;
+}
+
+.hero-panel {
+    text-align: center;
+    border: var(--border-teal-glow);
+    padding: 2.5rem;
+}
+
+.panel-title {
+    font-size: 2rem;
+    color: var(--color-accent-teal);
+    text-shadow: 0 0 12px rgba(51, 204, 255, 0.5);
+    margin-bottom: 1rem;
+}
+
+.event-details {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+}
+
+.ordinal {
+    font-size: 0.8rem;
+    vertical-align: super;
+}
+
+/* --- Main Content Split Layout --- */
+.main-content-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+/* --- The Muro / News Datacore --- */
+.section-title {
+    color: var(--color-text-primary);
+    border-bottom: var(--border-teal-glow);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.news-card {
+    background-color: var(--color-bg-panel);
+    border: var(--border-glass);
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-accent-teal);
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.card-date {
+    font-family: var(--font-heading);
+}
+
+.card-tag {
+    color: var(--color-accent-gold);
+    text-transform: uppercase;
+}
+
+.card-title {
+    color: var(--color-text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.highlight-alert {
+    color: var(--color-alert-red);
+    font-weight: 700;
+}
+
+/* --- Buttons --- */
+.button-standard, .button-alert, .button-action {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    font-size: 0.85rem;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.button-standard {
+    background-color: var(--color-button-blue);
+    border: 1px solid var(--color-button-blue);
+}
+
+.button-alert {
+    background-color: var(--color-alert-red);
+    border: 1px solid var(--color-alert-red);
+}
+
+.button-action {
+    background-color: transparent;
+    border: var(--border-teal-glow);
+    color: var(--color-accent-teal);
+}
+
+.button-action:hover {
+    background-color: rgba(51, 204, 255, 0.1);
+    box-shadow: 0 0 10px rgba(51, 204, 255, 0.3);
+}
+
+/* --- Side Panel Blocks --- */
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.static-home-block {
+    background-color: var(--color-bg-panel);
+    padding: 1.5rem;
+    border: var(--border-glass);
+    border-radius: 4px;
+}
+
+.panel-sub-title {
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.panel-text {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+}
+
+.formal-text {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.committee-list {
+    list-style: none;
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+}
+
+.committee-list li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.committee-list li::before {
+    content: '▶'; /* Sci-Fi list bullet */
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-gold);
+    font-size: 0.7rem;
+    top: 4px;
+}
+
+/* --- Poster Block --- */
+.event-poster-block .panel-sub-title {
+    text-align: center;
+}
+
+.poster-container {
+    padding: 0.5rem;
+    background-color: #000; /* Contrast for the poster */
+    border: var(--border-teal-glow);
+}
+
+.poster-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cta-center {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.cta-button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: rgba(5, 7, 10, 0.95);
+    border-top: var(--border-glass);
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logos {
+    display: flex;
+    gap: 1rem;
+}
+
+.logo-placeholder {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: var(--border-glass);
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.footer-contact {
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.footer-contact a:hover {
+    color: var(--color-accent-gold);
+}
+
+/* --- Responsive Design (Media Queries) --- */
+@media (max-width: 1024px) {
+    .main-content-layout {
+        grid-template-columns: 1fr; /* Stack columns */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Menu is hidden, hamburger button shown */
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        display: none; /* Initially hidden */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(5, 7, 10, 0.98);
+        border-bottom: var(--border-glass);
+        padding: 1rem 0;
+    }
+
+    .main-nav.active {
+        display: block; /* Shown when toggled */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .header-content {
+        padding: 0 1rem;
+    }
+
+    .datacore-panel, .hero-panel {
+        padding: 1.5rem;
+    }
+
+    .panel-title {
+        font-size: 1.5rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .footer-logos {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
